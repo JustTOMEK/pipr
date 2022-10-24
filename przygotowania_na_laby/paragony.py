@@ -22,12 +22,6 @@ def print_description(name, price):
     print(description)
 
 
-def get_product():
-    product = input('Give product name: ')
-    price = int(input('Give product price in gr: '))
-    return (product, price)
-
-
 def get_total_price(receipt):
     total_price = 0
     for product in receipt:
@@ -42,7 +36,7 @@ def print_receipt(receipt):
     product_count = 1
     for name, price in receipt:
         price = format_price(price)
-        print(f' {product_count:2}.{name:16} {price:>6} {get_tax_group(name)}')
+        print(f'{product_count:2}.{name:16} {price:>6} {get_tax_group(name)}')
         product_count += 1
     print('-' * 30)
     total_price = get_total_price(receipt)
@@ -61,6 +55,17 @@ def get_tax_group(product):
         return 'E'
 
 
+def get_product():
+    product_prices = {
+        'Stanik': 9283,
+        'Majtki': 432,
+        'Mleko': 321
+    }
+    name = input('Give a product name: ')
+    quantity = int(input('Give a product quantity: '))
+    return (name, quantity*product_prices[name])
+
+
 my_receipt = [
     ('Stanik', 9283),
     ('Majtki', 432),
@@ -69,3 +74,5 @@ my_receipt = [
 print_receipt(my_receipt)
 
 print(get_tax_group('Oranges'))
+
+print(get_product())
