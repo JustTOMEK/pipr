@@ -42,12 +42,23 @@ def print_receipt(receipt):
     product_count = 1
     for name, price in receipt:
         price = format_price(price)
-        print(f' {product_count:2}. {name:19}{price:>6}')
+        print(f' {product_count:2}.{name:16} {price:>6} {get_tax_group(name)}')
         product_count += 1
     print('-' * 30)
     total_price = get_total_price(receipt)
     formatted_value = format_price(total_price)
-    print(f'TOTAL:{formatted_value:>24}')
+    print(f'TOTAL:{formatted_value:>21}')
+
+
+def get_tax_group(product):
+    tax_group_A = ['Stanik', 'Majtki', 'Figi']
+    tax_group_B = ['Cars', 'Planes', 'Jets']
+    if product in tax_group_A:
+        return 'A'
+    elif product in tax_group_B:
+        return 'B'
+    else:
+        return 'E'
 
 
 my_receipt = [
@@ -56,3 +67,5 @@ my_receipt = [
     ('Mleko', 321)]
 
 print_receipt(my_receipt)
+
+print(get_tax_group('Oranges'))
