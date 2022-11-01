@@ -1,0 +1,30 @@
+## Zadanie 1
+
+Napisz funkcję iterującą po liczbach całkowitych od 1 do 100 i wypisującą je na ekran. 
+Dla liczb podzielnych przez 3 zamiast liczby wypisz "fizz", dla liczb podzielnych przez 5 wypisz "buzz", 
+natomiast zamiast liczb podzielnych przez 3 i 5 wypisz "fizzbuzz". Wskazówka: do generowania listy liczb od 1 do N użyj funkcji `
+[range(N)](https://docs.python.org/3/library/functions.html#func-range)`.
+
+## Zadanie 2
+
+Napisz funkcję, która dla zadanej listy zwróci listę zawierającą co trzeci element, w odwróconej kolejności, zaczynając od przedostatniego. 
+Przykład: dla listy `[1, 2, 3, 4, 5, 6, 7, 8, 9]` wynikiem będzie `[8, 5, 2]`. Do przetestowania poprawności rozwiązania użyj debuggera.
+
+## Zadanie 3
+
+Napisz funkcję rekurencyjną zwracającą piąty element ciągu Fibonacciego. Prześledź działanie tej funkcji, korzystając z debuggera.
+
+## Zadanie 4
+
+Zmodyfikuj funkcję `print_receipt` tak, aby prócz sumowania kwoty wyliczała należny podatek, uwzględniając grupy podatkowe poszczególnych towarów. 
+Wskazówka: do mapowania grupy podatkowej na wartość podatku użyj słownika. 
+Spodziewany wynik (przy założeniu, że w grupie podatkowej A podatek wynosi 12%, w grupie podatkowej B 8%, zaś w grupie podatkowej E 22%):
+2020-10-27
+1. Bananas   4.99 B
+2. Oragnes  18.03 B
+3. Milk      3.15 A
+4. Lollipop  1.00 E
+-----------------------
+TAX              2.44
+TOTAL:      27.17
+TOTAL+TAX:  29.61
