@@ -9,12 +9,12 @@ def time_description(hour, minute):
                    22: 'twenty two', 23: 'twenty three', 24: 'twenty four',
                    25: 'twenty five', 26: 'twenty six', 27: 'twenty seven',
                    28: 'twenty eight', 29: 'twenty nine', 30: 'half'}
-    if hour > 12 or minute > 60:
+    if hour > 12 or minute >= 60:
         return "Incorrect input data!"
     if minute == 0:
         return f'{time_to_str[hour]} {time_to_str[0]}'
     if minute == 1:
-        return f'{time_to_str[minute]} minute  {time_to_str[hour]}'
+        return f'{time_to_str[minute]} minute past {time_to_str[hour]}'
     elif minute == 15:
         return f'{time_to_str[minute]} past {time_to_str[hour]} '
     elif minute < 30:
