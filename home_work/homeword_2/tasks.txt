@@ -1,0 +1,30 @@
+Zadanie 1
+Napisz funkcję count_symbols zliczającą wystąpienia poszczególnych symboli w tablicy dwuwymiarowej (przekazywanej jako argument wywołania).
+Jako wynik wywołania zwróć słownik, gdzie kluczami są poszczególne symbole występujące w tablicy wejściowej, zaś wartościami - liczba ich wystąpień.
+
+Można założyć, że jedynymi symbolami występującymi w tablicy są małe i wielkie litery alfabetu łacińskiego.
+
+Przykład: dla poniższej tablicy
+
+[['a', 'c', 'o'],
+ ['a', 'a', 'c'],
+ ['d', 'o', 'O'],
+ ['c', 'b', 'a']]
+rezultatem powinien być następujący słownik: {'a': 4, 'c': 3, 'o': 2, 'd': 1, 'O': 1, 'b': 1}
+
+Zadanie 2
+Napisz funkcję time_description, która przyjmuje jako argumenty dwie liczby całkowite oznaczające liczbę godzin i liczbę minut, 
+i zwraca napis odpowiadający słownemu opisowi godziny w języku angielskim.
+
+Wskazówki: jeśli liczba minut wynosi zero, użyj słowa o' clock. Jeśli liczba minut mieści się pomiędzy 1 a 30, użyj past.
+Jeśli liczba minut jest większa niż 30, użyj to. Do mapowania liczb na słowa wykorzystaj słownik.
+
+Uwaga! Godziny podawane są wyłącznie w systemie dwunastkowym. 
+Podanie błędnej godziny bądź minuty powinno skutkować komunikatem Incorrect input data!.
+
+Przykłady: - dla time_description(8, 15) zwraca quarter past eight - 
+dla time_description(11, 13) zwraca thirteen minutes past eleven -
+dla time_description(12, 30) zwraca half past twelve - 
+dla time_description(6, 37) zwraca twenty three minutes to seven - 
+dla time_description(3, 45) zwraca quarter to four - 
+dla time_description(15, 5) zwraca Incorrect input data!
