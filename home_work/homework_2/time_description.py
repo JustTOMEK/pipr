@@ -1,29 +1,25 @@
 def time_description(hour, minute):
-    time_to_str = {0: "o' clock", 1: 'one', 2: 'two', 3: 'three',
-                   4: 'four', 5: 'five',
-                   6: 'six', 7: 'seven', 8: 'eight', 9: 'nine', 10: 'ten',
-                   11: 'eleven', 12: 'twelve',
-                   13: 'thirteen', 14: 'fourteen', 15: 'quarter',
-                   16: 'sixteen', 17: 'seventeen', 18: 'eighteen',
-                   19: 'nineteen', 20: 'twenty', 21: 'twenty one',
-                   22: 'twenty two', 23: 'twenty three', 24: 'twenty four',
-                   25: 'twenty five', 26: 'twenty six', 27: 'twenty seven',
-                   28: 'twenty eight', 29: 'twenty nine', 30: 'half'}
-    if hour > 12 or minute >= 60 or hour <= 0 or minute < 0:
+    time_to_str = {0: "o' clock", 1: 'one minute', 2: 'two minutes',
+                   3: 'three minutes', 4: 'four minutes', 5: 'five minutes',
+                   6: 'six minutes', 7: 'seven minutes', 8: 'eight minutes',
+                   9: 'nine minutes', 10: 'ten minutes',
+                   11: 'eleven minutes', 12: 'twelve minutes',
+                   13: 'thirteen minutes', 14: 'fourteen minutes',
+                   15: 'quarter', 16: 'sixteen minutes',
+                   17: 'seventeen minutes', 18: 'eighteen minutes',
+                   19: 'nineteen minutes', 20: 'twenty minutes',
+                   21: 'twenty one minutes', 22: 'twenty two minutes',
+                   23: 'twenty three minutes', 24: 'twenty four minutes',
+                   25: 'twenty five minutes', 26: 'twenty six minutes',
+                   27: 'twenty seven minutes', 28: 'twenty eight minutes',
+                   29: 'twenty nine minutes', 30: 'half'}
+    if hour not in range(1, 13) or minute not in range(0, 60):
         return "Incorrect input data!"
-    if minute == 0:
-        return f'{time_to_str[hour]} {time_to_str[0]}'
-    if minute == 1:
-        return f'{time_to_str[minute]} minute past {time_to_str[hour]}'
-    elif minute == 15:
-        return f'{time_to_str[minute]} past {time_to_str[hour]} '
-    elif minute < 30:
-        return f'{time_to_str[minute]} minutes past {time_to_str[hour]} '
-    elif minute == 30:
-        return f'{time_to_str[minute]} past {time_to_str[hour]} '
-    elif minute == 59:
-        return f'{time_to_str[60-minute]} minute to {time_to_str[hour+1]}'
-    elif minute == 45:
-        return f'{time_to_str[60-minute]} to {time_to_str[hour+1]} '
-    elif minute > 30:
-        return f'{time_to_str[60-minute]} minutes to {time_to_str[hour+1]}'
+    elif minute == 0:
+        return f'{time_to_str[hour].split()[0]} {time_to_str[minute]}'
+    elif hour == 12 and minute > 30:
+        return f'{time_to_str[60 - minute]} to one'
+    elif minute <= 30:
+        return f'{time_to_str[minute]} past {time_to_str[hour].split()[0]}'
+    else:
+        return f'{time_to_str[60-minute]} to {time_to_str[hour+1].split()[0]}'
