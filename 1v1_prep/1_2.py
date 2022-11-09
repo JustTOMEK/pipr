@@ -1,18 +1,16 @@
-def most_appereances(string):
+def most_appeareances(string):
     most = []
-    apperances = []
+    appereances = []
     for char in set(string):
-        if char == ' ':
-            continue
-        else:
-            apperances.append([char, string.count(char)])
-    maks = max(apperances, key=lambda x: x[1])
-    for element in apperances:
-        if element[1] == maks[1]:
+        if char != ' ':
+            appereances.append([char, string.count(char)])
+    maks = max(appereances, key=lambda x: x[1])[1]
+    for element in appereances:
+        if element[1] == maks:
             most.append(element[0])
     return most
 
 
 string = "Dawno nie byłem w szkolell"
-for char in most_appereances(string):
-    print(char)
+for element in most_appeareances(string):
+    print(element)
