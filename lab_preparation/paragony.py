@@ -2,19 +2,32 @@ from datetime import datetime
 
 
 def split_price(price):
+    price = int(price)
+    is_negative = price < 0
+    if is_negative:
+        price = -price
     price_zl = price // 100
     price_gr = price % 100
+    if is_negative:
+        price_zl = -price_zl
     return (price_zl, price_gr)
 
 
 def format_price(price):
-    zl, gr = price // 100, price % 100
-    return f'{zl}.{gr:02}'
+    try:
+        zl, gr = price // 100, price % 100
+        return f'{zl}.{gr:02}'
+    except Exception:
+        return ''
 
 
 def get_description(name, price):
-    price_parts = split_price(price)
-    return f'{name}\t{price_parts[0]}.{price_parts[1]:02}'
+    if not name:
+        raise ValueError('Name cannot be empty')
+    formatted_price = format_price(price)
+    if not formatted_price:
+        return f'{name} does not have a price'
+    return f'Price of {name} is {formatted_price}'
 
 
 def print_description(name, price):
